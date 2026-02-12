@@ -51,12 +51,6 @@ concepts:
     definition: A curated collection of metadata about datasets, providing information about data resources, their characteristics, and how to access them
     altLabel: catalog
 
-series:
-  - identifier: ex:abcde
-    title: all the datasets by this publisher
-    publisher:
-      name: My name
-
 metrics:
   - identifier: ex:fkrhkqewjewrc
     prefLabel: example metric
