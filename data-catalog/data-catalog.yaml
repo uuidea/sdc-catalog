@@ -11,24 +11,6 @@ dataCatalog:
 
 
 datasets:
-  - identifier: ex:herrcgre
-    title: test dataset
-    publisher:
-      name : my name
-    contactPoint: 
-      hasEmail: my.name@example.com
-    status: draft
-    theme:
-      - ex:abc
-      - ex:bcd 
-      - ex:def
-    license:
-      title: "cc-by 4.0"
-    temporal:
-      hasBeginning: 2025-01-01
-      hasEnd: 2025-12-31  
-    inSeries: ex:abcde
-    hasPolicy: plcy:open-information-policy
 
   - identifier: uuidea:uuidea_Data_Catalog
     title: uuidea Data Catalog
@@ -44,8 +26,9 @@ datasets:
     license:
       title: https://creativecommons.org/licenses/by-nc-nd/4.0/
     distribution:
-      - accessURL: https://data-catalog.uuidea.eu/data-catalog/data-catalog/_attachments/data-catalog.ttl
-      - format: text/turtle
+      - identifier: ex:uuidea-distribution
+        accessURL: https://data-catalog.uuidea.eu/data-catalog/data-catalog/_attachments/data-catalog.ttl
+        format: text/turtle
 
   - identifier: mopo-eu:Mopo_Data_Catalog_of_the_Pan-European_Framework_for_Energy_System_Modeling
     title: MoPo Data Catalog of the Pan-European Framework for Energy System Modelling
@@ -58,8 +41,9 @@ datasets:
     license:
       title: https://creativecommons.org/licenses/by/4.0/
     distribution:
-      - accessURL: https://spine-tools.github.io/mopo-data-catalog-of-the-pan-european-framework-for-energy-system-modelling/data-catalog/data-catalog/_attachments/data-catalog.ttl
-      - format: text/turtle
+      - identifier: ex:mopo-eu-distribution
+        accessURL: https://spine-tools.github.io/mopo-data-catalog-of-the-pan-european-framework-for-energy-system-modelling/data-catalog/data-catalog/_attachments/data-catalog.ttl
+        format: text/turtle
 
 concepts:
   - prefLabel: data catalog

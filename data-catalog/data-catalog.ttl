@@ -1,27 +1,27 @@
-@prefix adms: <http://www.w3.org/ns/adms#> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix dqv: <http://www.w3.org/ns/dqv#> .
 @prefix ex: <http://www.example.com/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix mopo-eu: <https://spine-tools.github.io/mopo-data-catalog-of-the-pan-european-framework-for-energy-system-modelling/data-catalog/data-catalog/> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix plcy: <https://www.uuidea.eu/policy/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
-@prefix sdcdc: <https://www.uuidea.eu/profiles/data-catalog/> .
+@prefix sdcc: <https://www.uuidea.eu/sdc-catalog/> .
+@prefix sdcdc: <https://www.uuidea.eu/profiles/data-catalog> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
-@prefix time: <http://www.w3.org/2006/time#> .
-@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix uuidea: <https://data-catalog.uuidea.eu/data-catalog/data-catalog/> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:abcde123 a dcat:Catalog ;
-    dcterms:description "a test data catalog created to validate the schema" ;
+ex:abcde a dcat:DatasetSeries ;
     dcterms:publisher [ a foaf:Agent ;
-            foaf:name "my name" ] ;
-    dcterms:title "test data catalog" .
+            foaf:name "My name" ] ;
+    dcterms:title "all the datasets by this publisher" .
 
-ex:ewfalsdfh a dcat:DataService ;
-    dcterms:description "example data sercvice like an openAPI endpoint" ;
-    dcterms:title "Example Service" ;
-    dcat:endpointURL "https://www.example.com/getyourdatahere/" ;
-    dcat:servesDataset ex:bvkljfhds .
+ex:mopo-eu-distribution a dcat:Distribution ;
+    dcterms:format "text/turtle" ;
+    dcat:accessURL "https://spine-tools.github.io/mopo-data-catalog-of-the-pan-european-framework-for-energy-system-modelling/data-catalog/data-catalog/_attachments/data-catalog.ttl" .
 
 ex:sfasdggfvrln a dqv:QualityMeasurement ;
     dqv:computedOn ex:herrcgre ;
@@ -29,32 +29,87 @@ ex:sfasdggfvrln a dqv:QualityMeasurement ;
     dqv:value "0.9"^^xsd:float ;
     prov:generatedAtTime "2025-04-22"^^xsd:date .
 
-ex:bvkljfhds a dcat:Dataset ;
+ex:uuidea-distribution a dcat:Distribution ;
+    dcterms:format "text/turtle" ;
+    dcat:accessURL "https://data-catalog.uuidea.eu/data-catalog/data-catalog/_attachments/data-catalog.ttl" .
+
+uuidea:uuidea_Data_Catalog a dcat:Dataset ;
+    dcterms:description """This data catalog shows an overview of the datasets uuidea has contributed to.
+Fun fact the cataloging framework that is used for this catalog is developed by uuidea as well. To learn more, click on the GitHub button in the top right corner.
+""" ;
     dcterms:license [ a dcterms:LicenseDocument ;
-            dcterms:title "cc-by 4.0" ] ;
+            dcterms:title "https://creativecommons.org/licenses/by-nc-nd/4.0/" ] ;
     dcterms:publisher [ a foaf:Agent ;
-            foaf:name "my name" ] ;
-    dcterms:title "test lineage dataset" ;
+            foaf:name "uuidea" ] ;
+    dcterms:title "uuidea Data Catalog" ;
     vcard:contactPoint [ a vcard:Kind ;
-            vcard:hasEmail "my.name@example.com" ] ;
-    adms:status "draft" ;
-    dcat:inSeries ex:abcde ;
-    dcat:theme ex:abc,
-        ex:bcd ;
-    dcat:version [ a dcterms:PeriodOfTime ;
-            time:hasBeginning "2025-01-01"^^xsd:date ;
-            time:hasEnd "2025-12-31"^^xsd:date ] ;
-    prov:wasDerivedFrom ex:herrcgre .
+            vcard:hasEmail "joep @ uuidea . eu" ] ;
+    dcat:distribution ex:uuidea-distribution ;
+    dcat:theme sdcc:data-catalog .
 
-ex:def a skos:Concept ;
-    skos:altLabel "information (leave a comment ;-))" ;
-    skos:definition "data is plural of datum" ;
-    skos:prefLabel "data" .
+mopo-eu:Mopo_Data_Catalog_of_the_Pan-European_Framework_for_Energy_System_Modeling a dcat:Dataset ;
+    dcterms:description """Data catalog for the Pan-European Framework for Energy System Modelling (Spine Project).
+""" ;
+    dcterms:license [ a dcterms:LicenseDocument ;
+            dcterms:title "https://creativecommons.org/licenses/by/4.0/" ] ;
+    dcterms:publisher [ a foaf:Agent ;
+            foaf:name "spine-tools" ] ;
+    dcterms:title "MoPo Data Catalog of the Pan-European Framework for Energy System Modelling" ;
+    dcat:distribution ex:mopo-eu-distribution ;
+    dcat:theme sdcc:data-catalog .
 
-ex:fekfrbajr a dcat:Distribution ;
-    dcterms:format "csv" ;
-    dcterms:issued "2025-11-26"^^xsd:date ;
-    dcat:accessURL "https://www.example.com/getyourdatahere.csv" .
+plcy:make-accessible a odrl:Duty ;
+    dcterms:description """The provider must make the data available through an appropriate
+protocol so that consumers can retrieve it without restriction.
+""" ;
+    odrl:action "make_available" ;
+    odrl:assignee "Data Provider" .
+
+plcy:open-info-access a odrl:Permission ;
+    dcterms:description """Allows any consumer to access the data.
+""" ;
+    odrl:action "access" ;
+    odrl:assignee "Data Consumer" .
+
+plcy:open-information-policy a odrl:Policy ;
+    dcterms:description """Open Information policy for the project.  
+It ensures that data is Findable, Accessible, Interoperable, and Reusable (FAIR).
+""" ;
+    dcterms:title "open information policy" ;
+    odrl:obligation plcy:make-accessible,
+        plcy:provide-license,
+        plcy:provide-rights-statement,
+        plcy:register-in-catalog ;
+    odrl:permission plcy:open-info-access .
+
+plcy:provide-license a odrl:Duty ;
+    dcterms:description """The publisher must provide an open‑source or Creative‑Commons licence
+describing how the data may be used.
+""" ;
+    odrl:action "provide" ;
+    odrl:assignee "Data Provider" .
+
+plcy:provide-rights-statement a odrl:Duty ;
+    dcterms:description """The publisher must provide a rights statement (e.g., from rightsstatements.org)
+indicating any intellectual‑property or copy rights.
+""" ;
+    odrl:action "provide" ;
+    odrl:assignee "Data Provider" .
+
+plcy:register-in-catalog a odrl:Duty ;
+    dcterms:description """The publisher must register the data in the project catalog so it is findable.
+""" ;
+    odrl:action "register" ;
+    odrl:assignee "Data Provider" .
+
+sdcc:Catalog_of_simple_data_catalog_Catalogs a dcat:Catalog ;
+    dcterms:description """This catalog provides an overview of Catalogs that use the simple_data_catalog to publish their data. Contribution to this catalog is voluntary, but very much appreciated. Adding your data catalog to this one helps other find eachother and each others data. It allows us to build a community and make our data even more findable. 
+""" ;
+    dcterms:license [ a dcterms:LicenseDocument ;
+            dcterms:title "https://creativecommons.org/licenses/by-sa/4.0/" ] ;
+    dcterms:publisher [ a foaf:Agent ;
+            foaf:name "https://www.linkedin.com/in/joep-van-genuchten-a6836751/[Joep van Genuchten]" ] ;
+    dcterms:title "Catalog of simple_data_catalog Catalogs" .
 
 ex:fkrhkqewjewrc a dqv:Metric ;
     skos:definition "an example of a data quality metric" ;
@@ -62,49 +117,18 @@ ex:fkrhkqewjewrc a dqv:Metric ;
     dqv:expectedDataType xsd:float ;
     dqv:inDimension "Completeness" .
 
-ex:abc a skos:Concept ;
-    skos:altLabel "juice" ;
-    skos:definition "energy is energy" ;
-    skos:prefLabel "energy" .
-
-ex:abcde a dcat:DatasetSeries ;
-    dcterms:publisher [ a foaf:Agent ;
-            foaf:name "My name" ] ;
-    dcterms:title "all the datasets by this publisher" .
-
-ex:bcd a skos:Concept ;
-    skos:altLabel "practice" ;
-    skos:definition "test is just for testing" ;
-    skos:prefLabel "test" .
-
-ex:herrcgre a dcat:Dataset ;
-    dcterms:license [ a dcterms:LicenseDocument ;
-            dcterms:title "cc-by 4.0" ] ;
-    dcterms:publisher [ a foaf:Agent ;
-            foaf:name "my name" ] ;
-    dcterms:title "test dataset" ;
-    vcard:contactPoint [ a vcard:Kind ;
-            vcard:hasEmail "my.name@example.com" ] ;
-    adms:status "draft" ;
-    dcat:distribution ex:fekfrbajr ;
-    dcat:inSeries ex:abcde ;
-    dcat:theme ex:abc,
-        ex:bcd,
-        ex:def ;
-    dcat:version [ a dcterms:PeriodOfTime ;
-            time:hasBeginning "2025-01-01"^^xsd:date ;
-            time:hasEnd "2025-12-31"^^xsd:date ] .
+sdcc:data-catalog a skos:Concept ;
+    skos:altLabel "catalog" ;
+    skos:definition "A curated collection of metadata about datasets, providing information about data resources, their characteristics, and how to access them" ;
+    skos:prefLabel "data catalog" .
 
 [] a sdcdc:Container ;
-    sdcdc:concepts ex:abc,
-        ex:bcd,
-        ex:def ;
-    sdcdc:dataCatalog ex:abcde123 ;
-    sdcdc:dataServices ex:ewfalsdfh ;
-    sdcdc:datasets ex:bvkljfhds,
-        ex:herrcgre ;
-    sdcdc:distributions ex:fekfrbajr ;
+    sdcdc:concepts sdcc:data-catalog ;
+    sdcdc:dataCatalog sdcc:Catalog_of_simple_data_catalog_Catalogs ;
+    sdcdc:datasets uuidea:uuidea_Data_Catalog,
+        mopo-eu:Mopo_Data_Catalog_of_the_Pan-European_Framework_for_Energy_System_Modeling ;
     sdcdc:metrics ex:fkrhkqewjewrc ;
+    sdcdc:policies plcy:open-information-policy ;
     sdcdc:qualityMeasurements ex:sfasdggfvrln ;
     sdcdc:series ex:abcde .
 
