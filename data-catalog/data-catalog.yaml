@@ -1,115 +1,130 @@
 dataCatalog:
   identifier: sdcc:Catalog_of_simple_data_catalog_Catalogs
-  description: |
-    This catalog provides an overview of Catalogs that use the simple_data_catalog to publish their data. Contribution to this catalog is voluntary, but very much appreciated. Adding your data catalog to this one helps other find eachother and each others data. It allows us to build a community and make our data even more findable. 
+  description: "This catalog provides an overview of Catalogs that use the simple_data_catalog\
+    \ to publish their data. Contribution to this catalog is voluntary, but very much\
+    \ appreciated. Adding your data catalog to this one helps other find eachother\
+    \ and each others data. It allows us to build a community and make our data even\
+    \ more findable. \n"
   title: Catalog of simple_data_catalog Catalogs
-  license: 
+  license:
     title: https://creativecommons.org/licenses/by-sa/4.0/
   publisher:
     name: https://www.linkedin.com/in/joep-van-genuchten-a6836751/[Joep van Genuchten]
-
-
-
 datasets:
+- identifier: uuidea:uuidea_Data_Catalog
+  title: uuidea Data Catalog
+  theme:
+  - sdcc:data-catalog
+  description: 'This data catalog shows an overview of the datasets uuidea has contributed
+    to.
 
-  - identifier: uuidea:uuidea_Data_Catalog
-    title: uuidea Data Catalog
-    theme:
-      - sdcc:data-catalog
-    description: |
-      This data catalog shows an overview of the datasets uuidea has contributed to.
-      Fun fact the cataloging framework that is used for this catalog is developed by uuidea as well. To learn more, click on the GitHub button in the top right corner.
-    publisher:
-      name: uuidea
-    contactPoint:
-      hasEmail: joep @ uuidea . eu
-    license:
-      title: https://creativecommons.org/licenses/by-nc-nd/4.0/
-    distribution:
-      - identifier: ex:uuidea-distribution
-        accessURL: https://data-catalog.uuidea.eu/data-catalog/data-catalog/_attachments/data-catalog.ttl
-        format: text/turtle
+    Fun fact the cataloging framework that is used for this catalog is developed by
+    uuidea as well. To learn more, click on the GitHub button in the top right corner.
 
-  - identifier: mopo-eu:Mopo_Data_Catalog_of_the_Pan-European_Framework_for_Energy_System_Modeling
-    title: MoPo Data Catalog of the Pan-European Framework for Energy System Modelling
-    description: |
-      Data catalog for the Pan-European Framework for Energy System Modelling (Spine Project).
-    publisher:
-      name: spine-tools
-    theme:
-      - sdcc:data-catalog
-    license:
-      title: https://creativecommons.org/licenses/by/4.0/
-    distribution:
-      - identifier: ex:mopo-eu-distribution
-        accessURL: https://spine-tools.github.io/mopo-data-catalog-of-the-pan-european-framework-for-energy-system-modelling/data-catalog/data-catalog/_attachments/data-catalog.ttl
-        format: text/turtle
+    '
+  publisher:
+    name: uuidea
+  contactPoint:
+    hasEmail: joep @ uuidea . eu
+  license:
+    title: https://creativecommons.org/licenses/by-nc-nd/4.0/
+  distribution:
+  - identifier: ex:uuidea-distribution
+    accessURL: https://data-catalog.uuidea.eu/data-catalog/data-catalog/_attachments/data-catalog.ttl
+    format: text/turtle
+- identifier: mopo-eu:Mopo_Data_Catalog_of_the_Pan-European_Framework_for_Energy_System_Modeling
+  title: MoPo Data Catalog of the Pan-European Framework for Energy System Modelling
+  description: 'Data catalog for the Pan-European Framework for Energy System Modelling
+    (Spine Project).
 
+    '
+  publisher:
+    name: spine-tools
+  theme:
+  - sdcc:data-catalog
+  license:
+    title: https://creativecommons.org/licenses/by/4.0/
+  distribution:
+  - identifier: ex:mopo-eu-distribution
+    accessURL: https://spine-tools.github.io/mopo-data-catalog-of-the-pan-european-framework-for-energy-system-modelling/data-catalog/data-catalog/_attachments/data-catalog.ttl
+    format: text/turtle
+- identifier: default:The_Title_Of_Your_Catalog
+  title: The Title Of Your Catalog
+  description: a test data catalog created to validate the schema
+  publisher:
+    name: my name
+  license:
+    title: https://creativecommons.org/licenses/by-sa/4.0/
+  wasDerivedFrom:
+  - identifier: joepvgenuchten-test-sdcc-source
+    title: 'Source repository: joepvgenuchten/test-sdcc'
+    description: This dataset was automatically submitted from https://github.com/joepvgenuchten/test-sdcc
+  submittedAt: '2026-02-17T14:32:24.408531'
+  submittedFrom: https://github.com/joepvgenuchten/test-sdcc
 concepts:
-  - prefLabel: data catalog
-    identifier: sdcc:data-catalog
-    definition: A curated collection of metadata about datasets, providing information about data resources, their characteristics, and how to access them
-    altLabel: catalog
-
+- prefLabel: data catalog
+  identifier: sdcc:data-catalog
+  definition: A curated collection of metadata about datasets, providing information
+    about data resources, their characteristics, and how to access them
+  altLabel: catalog
 metrics:
-  - identifier: ex:fkrhkqewjewrc
-    prefLabel: example metric
-    definition: an example of a data quality metric
-    expectedDataType: xsd:float
-    inDimension: Completeness
-
-
+- identifier: ex:fkrhkqewjewrc
+  prefLabel: example metric
+  definition: an example of a data quality metric
+  expectedDataType: xsd:float
+  inDimension: Completeness
 qualityMeasurements:
-  - identifier: ex:sfasdggfvrln
-    computedOn: ex:herrcgre
-    isMeasurementOf: ex:fkrhkqewjewrc
-    generatedAtTime: 2025-04-22
-    value: 0.9
-
+- identifier: ex:sfasdggfvrln
+  computedOn: ex:herrcgre
+  isMeasurementOf: ex:fkrhkqewjewrc
+  generatedAtTime: 2025-04-22
+  value: 0.9
 policies:
-  - uid: plcy:open-information-policy
-    title: open information policy
-    description: |
-      Open Information policy for the project.  
-      It ensures that data is Findable, Accessible, Interoperable, and Reusable (FAIR).
-    permission:
-      - uid: plcy:open-info-access
-        description: |
-          Allows any consumer to access the data.
-        action: access
-        assignee: 
-        - Data Consumer
-    obligation:
-      # Duty: register the data in a catalog
-      - uid: plcy:register-in-catalog
-        description: |
-          The publisher must register the data in the project catalog so it is findable.
-        action: register
-        assignee:
-          - Data Provider
-     # Duty: provide an open licence
-      - uid: plcy:provide-license
-        description: |
-          The publisher must provide an open‑source or Creative‑Commons licence
-          describing how the data may be used.
-        action: provide
-        assignee:
-          - Data Provider
-     # Duty: provide a rights statement
-      - uid: plcy:provide-rights-statement
-        description: |
-          The publisher must provide a rights statement (e.g., from rightsstatements.org)
-          indicating any intellectual‑property or copy rights.
-        action: provide
-        assignee:
-          - Data Provider
-     # Duty: make the data accessible via an appropriate protocol
-      - uid: plcy:make-accessible
-        description: |
-          The provider must make the data available through an appropriate
-          protocol so that consumers can retrieve it without restriction.
-        action: make_available
-        assignee:
-          - Data Provider
-  
+- uid: plcy:open-information-policy
+  title: open information policy
+  description: "Open Information policy for the project.  \nIt ensures that data is\
+    \ Findable, Accessible, Interoperable, and Reusable (FAIR).\n"
+  permission:
+  - uid: plcy:open-info-access
+    description: 'Allows any consumer to access the data.
 
+      '
+    action: access
+    assignee:
+    - Data Consumer
+  obligation:
+  - uid: plcy:register-in-catalog
+    description: 'The publisher must register the data in the project catalog so it
+      is findable.
+
+      '
+    action: register
+    assignee:
+    - Data Provider
+  - uid: plcy:provide-license
+    description: 'The publisher must provide an open‑source or Creative‑Commons licence
+
+      describing how the data may be used.
+
+      '
+    action: provide
+    assignee:
+    - Data Provider
+  - uid: plcy:provide-rights-statement
+    description: 'The publisher must provide a rights statement (e.g., from rightsstatements.org)
+
+      indicating any intellectual‑property or copy rights.
+
+      '
+    action: provide
+    assignee:
+    - Data Provider
+  - uid: plcy:make-accessible
+    description: 'The provider must make the data available through an appropriate
+
+      protocol so that consumers can retrieve it without restriction.
+
+      '
+    action: make_available
+    assignee:
+    - Data Provider
