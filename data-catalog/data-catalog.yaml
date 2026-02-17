@@ -61,6 +61,18 @@ datasets:
     description: This dataset was automatically submitted from https://github.com/joepvgenuchten/test-sdcc
   submittedAt: '2026-02-17T14:32:24.408531'
   submittedFrom: https://github.com/joepvgenuchten/test-sdcc
+  - identifier: default:The_Title_Of_Your_Catalog-1
+    title: The Title Of Your Catalog
+    description: a test data catalog created to validate the schema
+    publisher:
+      name: my name
+    license:
+      title: https://creativecommons.org/licenses/by-sa/4.0/
+    distribution:
+    - identifier: joepvgenuchten-test-sdcc-source
+      title: 'Source repository: joepvgenuchten/test-sdcc'
+      description: This dataset was automatically submitted from https://github.com/joepvgenuchten/test-sdcc
+      accessURL: https://github.com/joepvgenuchten/test-sdcc
 concepts:
 - prefLabel: data catalog
   identifier: sdcc:data-catalog
